@@ -26,6 +26,23 @@ d-i partman-md/device_remove_md boolean true
 d-i partman-lvm/confirm boolean true
 d-i partman-lvm/confirm_nooverwrite boolean true
 d-i partman-auto/expert_recipe string                         \
+      boot-root ::                                            \
+              1024 50 1024 ext4                               \
+                      $primary{ } $bootable{ }                \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ /boot }                     \
+              .                                               \
+              32768 512 32768 linux-swap                      \
+                      $primary{ }                             \
+                      method{ swap } format{ }                \
+              .                                               \
+              32768 10000 -1 ext4                             \
+                      $primary{ }                             \
+                      method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
+                      mountpoint{ / }                         \
+              .
 d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman/confirm boolean true
