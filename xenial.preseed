@@ -13,7 +13,6 @@ d-i mirror/http/directory string /ubuntu
 d-i mirror/http/proxy string
 d-i passwd/user-fullname string Ubuntu User
 d-i passwd/username string ubuntu
-d-i passwd/user-password-crypted password $6$oZYBxWab2E2R7F$Iz4Fjw.kKEXlMzB./9OXanaalQi/7g256UByNA97Lj0Oq1WHavOfx/jNEFjYdnmc0dbtsGG3VUzGpNp/nGHDk0
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 d-i clock-setup/utc boolean true
